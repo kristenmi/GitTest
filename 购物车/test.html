@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品订单页</title>
+    <link rel="stylesheet" href="pc.css">
+    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" type="text/css"  href="iconfont.css">
+    <script src="jquery-1.11.3.js"></script>
+    <script type = "text/javascript" src="jquery.cookie.js"></script>
+    <script type = 'text/javascript' src = 'parabola.js'></script>
+</head>
+<body>
+  <header>
+    <div class="allcenter headtop">
+     <ul class="head-left ">
+         <li>
+           <i class="iconfont">&#xe61b;</i>
+           <a href="">返回首页</a>
+         </li>
+         <li>
+           <a href="">网站导航</a>
+           <em class="iconfont">&#xe505;</em>
+           <div class="web">
+             <dl>
+               <dt>特色购物</dt>
+               <dd>
+                 <a>苏宁互联</a>
+                 <a>苏宁卡</a>
+                 <a>易回收</a>
+                 <a>领券中心</a>
+                 <a>导购指南</a>
+                 <a>苏宁达人</a>
+                 <a>苏宁国际</a>
+                 <a>二手优品</a>
+                 <a>苏宁outlets</a>
+               </dd>
+             </dl>
+             <dl>
+               <dt>主题频道</dt>
+               <dd>
+                 <a>电器城</a>
+                 <a>手机</a>
+                 <a>图书</a>
+                 <a>美妆个护</a>
+                 <a>服装城</a>
+                 <a>家装馆</a>
+                 <a>排行榜</a>
+                 <a>苏宁超市</a>
+                 <a>运动馆</a>
+                 <a>红孩子母婴</a>
+                 <a>电脑</a>
+                 <a>智能生活</a>
+                 <a>苏宁汽车</a>
+                 <a>医药馆</a>
+               </dd>
+             </dl>
+             <dl>
+               <dt>生活助手</dt>
+               <dd> 
+                 <a>零钱宝</a>
+                 <a>转账还款</a>
+                 <a>水电煤</a>
+                 <a>机票</a>
+                 <a>酒店</a>
+                 <a>手机充值</a>
+                 <a>约服务</a>
+                 <a>保险</a>
+                 <a>门店查询</a>
+               </dd>
+             </dl>
+             <dl>
+               <dt>会员服务</dt>
+               <dd> 
+               <a>会员联盟</a>
+               <a>易付宝</a>
+               <a>苏宁理财</a>
+               <a>苏宁金融</a>
+               <a>延期保修</a>
+             </dd>
+             </dl>
+             <dl>
+               <dt>更多热点</dt>
+               <dd>
+                 <a>pp视频</a>
+                 <a>苏宁联盟</a>
+                 <a>苏宁云</a>
+                 <a>苏宁公益</a>
+                 <a>合作招商</a>
+                 <a>用户体验</a>
+                 <a>苏宁足球</a>
+                 <a>苏宁体验</a>
+                 <a>苏宁有货</a>
+               </dd>
+             </dl>
+           </div>
+         </li>
+         <li>
+           <a href="">商家入驻</a>
+           <em class="iconfont">&#xe505;</em>
+           <div class="merchant">
+             <a href="">合作招商</a>
+             <a href="">服务市场</a>
+             <a href="">金融中心</a>
+             <a href="">培训中心</a>
+             <a href="">易通天下</a>
+             <a href="">规则中心</a>
+             <a href="">规则众议院</a>
+           </div>
+         </li>
+         <li>
+           <a href="">客户服务</a>
+           <em class="iconfont">&#xe505;</em>
+           <div class="merchant">
+             <a href="">苏宁帮客</a>
+             <a href="">帮助中心</a>
+             <a href="">退换/维修</a>
+             <a href="">意见反馈</a>
+             <a href="">30天包退</a>
+             <a href="">售后无忧</a>
+             <a href="">在线咨询</a>
+           </div>
+         </li>
+         
+     </ul>
+     <ul class="head-right">
+         <li><a href="">请登录</a></li>
+         <li ><a href="" class="active">注册有礼</a></li>
+         <li>
+           <a href="">我的订单</a>
+           <em class="iconfont">&#xe505;</em>
+           <div class="order">
+             <a href="">待支付</a>
+             <a href="">待收货</a>
+             <a href="">待评价</a>
+             <a href="">修改订单</a>
+           </div>
+         </li>
+         <li>
+           <a href="">我的易购</a>
+           <em class="iconfont">&#xe505;</em>
+           <div class="mine">
+             <img src="images/ia_100000000.png" alt="">
+             <a href="">请登录</a>
+             <a href="">我的消息</a>
+             <a href="">我的关注</a>
+             <a href="">我的金融</a>
+             <a href="">苏宁会员</a>
+             <a href="">我的任性付</a>
+             <a href="">我的会员</a>
+           </div>
+         </li>
+         <li><a href="">苏宁会员</a></li>
+         <li class="active">
+           <i class="iconfont">&#xe62e;</i>
+           <a href="" class="active">购物车</a>
+         </li>
+         <li><a href="">易付宝</a></li>
+         <li><a href="">企业采购</a></li>
+         <li>
+           <a href="">手机苏宁</a>
+           <em class="iconfont">&#xe505;</em>
+           <div class="scan">
+             <img src="images/ia_100000001.jpg" alt="">
+             <img src="images/ia_100000002.jpg" alt="">
+             <img src="images/ia_100000003.jpg" alt="">
+             <img src="images/ia_100000004.jpg" alt="">
+           </div>
+         </li>
+     </ul>
+    </div>
+ </header>
+     <!-- content -->
+     <main>
+         <!-- 搜索框 -->
+         <section class="headMidBox allcenter">
+          <img src="images/ia_100000005.png" alt="">
+          <img src="images/苏宁首页_03.png" alt="">
+         <div>
+              <!-- 搜索框 -->
+          <form class="searchBox">
+              <div class="search-left">
+                  <i class="iconfont">&#xe60b;</i>
+                  <input type="text" value="" id="txt" placeholder="千万好货五折起">
+              </div>
+              <input type="submit" value="搜索" id="btn">
+          </form>
+          <!-- shoplist -->
+          <ul class="shoplist">
+              <li><a href="">白酒</a></li>
+              <li><a href="">牛奶</a></li>
+              <li><a href="">大米</a></li>
+              <li><a href="">零食</a></li>
+              <li><a href="">茅台</a></li>
+              <li><a href="">牛肉</a></li>
+              <li><a href="">抽纸</a></li>
+          </ul>
+         </div>
+          <img src="images/ia_100000007.jpg" alt="">
+      </section>
+         <!-- 结算清单 -->
+         <section class="orderbox allcenter">
+          <ul class="orderboxtop">
+            <li>
+              <input type="checkbox">
+              <span>全选</span>
+            </li>
+            <li>商品信息</li>
+            <li>规格</li>
+            <li>单价（元）</li>
+            <li>数量</li>
+            <li>小计（元）</li>
+            <li>操作</li>
+          </ul>
+          <ul class="orderboxbottom">
+            <li>
+                <input type="checkbox">
+                <div class="sc_goodsPic">
+                  <img src="${newArr[i].img}" alt="">
+                </div>
+              <div class="sc_goodscont">
+                  <div class="sc_goodsTitle">
+                    <p>${newArr[i].name}</p>
+                  </div>
+                <div class="sc_goodsNum">
+                  <div>
+                      <button>+</button>
+                      <span>${newArr[i].num}</span>
+                      <button>-</button>
+                  </div>
+                  <p>￥<b>${newArr[i].price}</b></p>
+                </div>
+              </div> 
+              <div class="delete_goodsBtn">X</div>
+            </li>
+          </ul>
+         </section>
+         <!-- 猜你喜欢 -->
+         <div class="goods_box allcenter">
+            <ul class="rankshop">
+                <li>
+                    <div class="goods_pic">
+                        <img src="${arr[0].childs[i].img}" alt="">
+                      </div>
+                      <div class="goods_title">
+                        <p>${arr[0].childs[i].name}</p>
+                      </div>
+                      <div class="goods_price">
+                        <p>￥${arr[0].childs[i].price}</p>
+                      </div>
+                      <div class="goods_btn">
+                          <i id="${arr[0].childs[i].id}" class="sc_btn iconfont">&#xe62e;</i>
+                      </div>
+                </li>
+            </ul>
+        </div>
+        <!-- 抛物线小球 -->
+        <div id = 'ball'></div>
+         <!-- 右边侧拉信息框 -->
+    <section class="shopcarbox">
+      <div class="snbar">
+        <img src="images/ia_100000288.png" alt="">
+         <!-- <article id="mall"></article>  -->
+      </div> 
+      <div style="top:20%;" >
+        <p>
+          <em class="iconfont">&#xe508;</em>
+          <!-- <div id="usertips"></div> -->
+        </p>
+      </div>
+      <div class="shopcar">
+        <i class="iconfont">&#xe62e;</i>
+        <aside>购物车</aside>
+        <u id="shopcarnum">0</u>
+        <!-- <article class="shopMsgBox"></article> -->
+      </div>
+      <div style="top:45%;">
+        <p>
+          <em class="iconfont">&#xe687;</em>
+          <span>消息</span>
+        </p>
+      </div>
+      <div style="top:55%;">
+        <p><em class="iconfont">&#xe624;</em><span>理财</span></p>
+        <p><em class="iconfont">&#xe66c;</em><span>足迹</span></p>
+        <p><em class="iconfont">&#xe607;</em><span>签到</span></p> 
+      </div>
+      <div style="top:75%;">
+        <p><em class="iconfont">&#xe60f;</em><span>在线咨询</span></p>
+        <p><em class="iconfont">&#xe9af;</em><span>意见反馈</span></p>
+        <p>
+          <em class="iconfont">&#xe650;</em>
+          <span class="download"><img src="images/ia_100000001.jpg" alt=""></span>
+        </p>
+      </div>
+      <div class="returntop">
+        <a href="">
+          <i class="iconfont">&#xe657;</i>
+          <span>返回顶部</span>
+        </a>
+      </div>
+    </section>
+         <!-- 右边购物车 -->
+         <section class="sideBox">
+            <article class="shopCarNumBox">
+              <div class="snbar">
+                <img src="images/ia_100000288.png" alt="">
+              </div>
+              <div class="sideBoxTop">
+                <input type="checkbox" id="checked-all">
+                <p>
+                  <span>共<u class="sum-num">0</u>件，已选<u class="check-sum">0</u>件</span>
+                </p>
+                <a href="">
+                  <span>查看全部</span>
+                </a>
+              </div>
+              <div class="sc_content">
+                <ul>
+                  
+                </ul>
+              </div>
+              <div class="sideBoxFoot">
+                <div class="cartinfro">
+                  <div class="cartinfro-left">
+                    <p id="checkedSum">已选&nbsp;<u>0</u>&nbsp;件</p>
+                    <p id="moneySum">总价:&nbsp;<u>0</u></p>
+                  </div>
+                  <a href="" class="ok">
+                    去购物车结算
+                    <i></i>
+                  </a>
+                </div>
+              </div>
+              <div class="sc_pic">
+                <div class="sc_num"> 0</div>
+              </div>
+            </article>
+          </section>
+     </main>
+    
+    
+</body>
+<script src="test.js"></script>
+</html>

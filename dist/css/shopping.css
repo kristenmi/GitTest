@@ -1,0 +1,225 @@
+html, body {
+  height: 100%; }
+
+.headerbox {
+  position: relative;
+  height: 100px;
+  border-bottom: 1px solid #e5e5e5; }
+  .headerbox .logo {
+    position: absolute;
+    top: 0;
+    left: 60px;
+    width: 130px;
+    height: 100px;
+    padding: 30px 0; }
+  .headerbox .userbox {
+    width: 364px;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    right: 60px; }
+    .headerbox .userbox a {
+      color: #333;
+      display: inline-block;
+      position: relative;
+      height: 100px;
+      padding-left: 25px;
+      line-height: 98px;
+      font-size: 16px; }
+    .headerbox .userbox .shoppingCart img {
+      width: 26px;
+      height: 26px;
+      vertical-align: middle;
+      display: inline-block; }
+    .headerbox .userbox .shoppingCart > em {
+      width: 32px;
+      height: 20px;
+      line-height: 20px;
+      vertical-align: middle;
+      background-color: orange;
+      display: inline-block;
+      text-align: center;
+      border-radius: 16px;
+      color: #fff; }
+    .headerbox .userbox .shoppingCart:hover .shoppingbox {
+      display: block;
+      background-color: #fff;
+      opacity: 1;
+      z-index: 2; }
+    .headerbox .userbox .shoppingbox {
+      position: absolute;
+      top: 80px;
+      right: 0;
+      display: none; }
+      .headerbox .userbox .shoppingbox .triangle {
+        width: 0;
+        border: 8px solid transparent;
+        border-bottom-color: #e6e6e6;
+        position: absolute;
+        top: -116px;
+        right: 50px; }
+      .headerbox .userbox .shoppingbox .square {
+        width: 454px;
+        height: 484px;
+        border: 1px solid #e6e6e6;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+        .headerbox .userbox .shoppingbox .square div {
+          text-align: center;
+          line-height: 30px;
+          font-size: 15px;
+          color: #cccccc;
+          height: 30px; }
+          .headerbox .userbox .shoppingbox .square div img {
+            width: 115px;
+            height: 115px;
+            position: absolute;
+            top: 122px;
+            left: 167px; }
+          .headerbox .userbox .shoppingbox .square div p {
+            line-height: 30px;
+            font-size: 15px;
+            color: #cccccc;
+            height: 30px;
+            padding-top: 50px; }
+  .headerbox .navbox {
+    width: 1180px;
+    font-size: 0;
+    text-align: center;
+    margin: auto; }
+    .headerbox .navbox .item {
+      display: inline-block;
+      height: 100px;
+      line-height: 98px;
+      padding: 0 20px;
+      border-bottom: 2px solid transparent;
+      font-size: 16px;
+      color: #666;
+      cursor: pointer;
+      box-sizing: border-box; }
+      .headerbox .navbox .item a {
+        color: #666;
+        display: inline-block; }
+    .headerbox .navbox div:nth-child(1):hover .show {
+      display: block; }
+    .headerbox .navbox .item:hover {
+      border-bottom: 2px solid #23a96f; }
+      .headerbox .navbox .item:hover > a {
+        border-bottom: 2px solid #23a96f; }
+    .headerbox .navbox .show {
+      width: 100%;
+      height: 135px;
+      background-color: #f9f9f9;
+      position: absolute;
+      left: 0;
+      display: none;
+      z-index: 3; }
+      .headerbox .navbox .show a {
+        display: inline-block;
+        margin: 0 20px;
+        padding: 25px 0;
+        font-size: 14px;
+        color: #666;
+        line-height: 34px; }
+        .headerbox .navbox .show a img {
+          display: block;
+          width: 50px;
+          height: 50px; }
+      .headerbox .navbox .show a:hover span {
+        color: #23a96f; }
+
+.sectionbox {
+  width: 100%;
+  height: 1380px;
+  background-color: #f8f8f8; }
+  .sectionbox .sectiontop {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    background-color: #fff; }
+    .sectionbox .sectiontop a {
+      display: block;
+      margin: 0 10px;
+      width: 380px;
+      height: 315px; }
+      .sectionbox .sectiontop a img {
+        width: 100%;
+        height: 100%;
+        display: block; }
+        .sectionbox .sectiontop a img:hover {
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+          transition: all .2s linear;
+          transform: translate3d(0, -2px, 0);
+          display: block;
+          width: 100%;
+          height: 100%; }
+  .sectionbox .sectionbottom {
+    position: relative;
+    top: 100px;
+    bottom: 68px;
+    margin: auto;
+    width: 1180px;
+    height: 700px;
+    background-color: #f8f8f8; }
+    .sectionbox .sectionbottom .text {
+      position: relative;
+      width: 100%;
+      height: 40px; }
+      .sectionbox .sectionbottom .text h1 {
+        display: block;
+        font-size: 28px;
+        position: absolute;
+        bottom: 10px; }
+      .sectionbox .sectionbottom .text .tele {
+        position: absolute;
+        right: 0px;
+        position: absolute;
+        bottom: 10px; }
+        .sectionbox .sectionbottom .text .tele a {
+          display: inline-block;
+          color: #000;
+          font-size: 18px;
+          margin-left: 30px; }
+        .sectionbox .sectionbottom .text .tele .more {
+          text-decoration: underline; }
+    .sectionbox .sectionbottom .picture {
+      width: 100%;
+      height: 600px;
+      text-align: center; }
+      .sectionbox .sectionbottom .picture div {
+        display: inline-block;
+        text-align: center;
+        margin: 5px; }
+        .sectionbox .sectionbottom .picture div a {
+          display: block;
+          height: 100%;
+          background-color: #fff;
+          padding: 40px 0;
+          color: #282828; }
+          .sectionbox .sectionbottom .picture div a img {
+            width: 196px;
+            height: 196px;
+            margin: 20px 40px; }
+          .sectionbox .sectionbottom .picture div a .title {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #FF9800; }
+          .sectionbox .sectionbottom .picture div a:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: .2s all linear;
+            transform: translate3d(0, -2px, 0);
+            width: 100%;
+            height: 100%; }
+          .sectionbox .sectionbottom .picture div a .btn {
+            width: 120px;
+            height: 25px;
+            background-color: #502828;
+            border-radius: 4px;
+            color: #fff; }

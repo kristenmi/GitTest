@@ -1,0 +1,200 @@
+html,body{
+  height:100%;
+  background-color: rgba(0,0,0,.3);
+}
+.register{
+  background-color: #fff;
+  position: fixed;
+  top:50%;
+  left:50%;
+  width: 420px;
+  margin: -240px 0 0 -215px;
+  z-index: 2;
+  text-decoration: none;
+  .title{
+    height: 54px;
+    border-bottom:1px solid #e5e5e5;
+    line-height: 55px;
+    text-align: center;
+    color:#666;
+    font-size:16px;
+    a{
+      display: block;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      right: 18px;
+      top:18px;
+      overflow: hidden;
+      img{
+        position: absolute;
+        top:-303px;
+        left:-604px;
+      }
+      &:hover img{
+        position: absolute;
+        left:-703px;
+      }
+    }
+  }
+  .content{
+    padding:54px;
+    height: 377px;
+    .phone{
+      display: block;
+      float: left;
+      width: 100%;
+      div{
+        input{
+          box-sizing: border-box;
+          display: inline-block;
+          width: 100%;
+          height: 40px;
+          padding: 4px 17px;
+          line-height: 30px;
+          border: 1px solid #e5e5e5;
+          font-size: 16px;          
+        }
+      }
+    }
+    .code{
+      position: relative;
+      float: left;
+      width: 100%;
+      height: 40px;
+      vertical-align: bottom;
+      margin-top: 20px;
+
+      div{
+        display: inline-block;
+        input{
+          box-sizing: border-box;
+          display: inline-block;
+          width: 312px;
+          font-size: 16px;
+          vertical-align: middle;
+          height: 40px;
+          padding: 4px 17px;
+          line-height: 30px;
+          border: 1px solid #e5e5e5;
+
+        }
+      }
+      // #code{
+      //   display: inline-block;
+      //   text-align: center;
+      //   color: #23a96f;
+      //   font-size: 18px;
+      //   border:1px solid #23a96f;
+      //   outline: none;
+      //   cursor: pointer;
+      //   width: 110px;
+      //   vertical-align: middle; 
+      //   height: 40px;
+      //   margin-left:5px; 
+      //   z-index: 9;
+      // }
+    }
+    .safe{
+      float: left;
+      width: 100%;
+      margin-top: 20px;
+      div{
+        input{
+          display: inline-block;
+          box-sizing: border-box;
+          width: 100%;
+          font-size: 16px;
+          vertical-align: middle;
+          height: 40px;
+          padding: 4px 17px;
+          line-height: 30px;
+          border: 1px solid #e5e5e5;
+        }
+        // button{
+        //   display: inline-block;
+        //   padding:10px;
+        //   border: none;
+        //   border-radius: 2px;
+        //   text-align: center;
+        //   color: #fff;
+        //   background-color: #23a96f;
+        //   outline: none;
+        //   cursor: pointer;
+        //   width: 114px;
+        //   vertical-align: middle; 
+        //   &:hover{
+        //     background-color: #37eb9d;
+        //   }       
+        // }
+      }
+    }
+    .alert {
+      margin: 0px 0px 10px 0px;
+      padding: 5px;
+      text-align: center;
+     display: none;
+    }
+    .reg{
+      margin: 40px auto 30px auto;
+      display: block;
+      float: left;
+      width: 100%;
+      height: 50px;
+      button{
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 20px;
+        border: none;
+        border-radius: 2px;
+        text-align: center;
+        color: #fff;
+        background-color: #23a96f;
+        cursor: pointer;
+        &:hover{
+          background-color: #37eb9d;
+        }             
+      }
+    }
+    .wechat{
+      float: left;
+      width: 100%;
+      border-top: 1px solid #e5e5e5;
+      box-sizing: border-box;
+      a{
+        text-decoration: none;
+        display: block;
+        width: 100px;
+        margin: 30px auto 0 auto;
+        span{
+          display: block;
+          height: 20px;
+          line-height: 20px;
+          margin-top: 12px;
+          text-align: center;
+          font-size: 16px;
+          color: #999;
+        }     
+        div{
+          position: relative;
+          display: block;
+          width: 44px;
+          height: 44px;
+          margin: 0 auto;
+          overflow: hidden;
+          img{
+            position: absolute;
+            top:-800px;
+          }
+          &:hover img{
+            position: absolute;
+            top:0;
+            left:-700px;
+          }
+        } 
+      }
+    }
+  }
+  
+}

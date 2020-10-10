@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="jquery-1.11.3.js"></script>
+    <script type = "text/javascript" src="jquery.cookie.js"></script>
+    <script type = 'text/javascript' src = 'parabola.js'></script>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        overflow: hidden;
+    }
+    li{
+        list-style-type: none;
+    }
+    .goods_box ul:after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .goods_box ul{
+			width: 1100px;
+			margin:0 auto;
+		}
+		.goods_item{
+			padding: 10px 6px;
+			border-right: 1px solid #b6b6b6;
+			float: left;
+			position: relative;
+			margin-bottom: 20px;
+		}
+		.goods_pic{
+			padding: 2px 15px;
+			margin: 0 auto;
+			width: 160px;
+			height: 160px;
+			-webkit-transition:all 0.5s ease-in-out;
+			-moz-transition:all 1s ease-in-out;
+		}
+		.goods_pic:hover{
+			transform:rotate(180deg);
+			box-shadow: 2px 2px 5px #b6b6b6;
+		}
+		.goods_title{
+			font-size: 12px;
+		    text-align: left;
+		    color: #999;
+		    padding: 13px 0 7px;
+		    display: block;
+		    max-width: 100%;
+		    _width: 100%;
+		    white-space: nowrap;
+		    text-overflow: ellipsis;
+		    overflow: hidden;
+		}
+		.sc{
+			padding: 10px 5px;
+		}
+		.sc_btn{
+			width: 100px;
+			margin: 0 auto;
+			text-align: center;
+			padding: 5px 10px;
+			border-radius: 2px;
+			box-shadow: 0 0 2px #f10;
+			height: 20px;
+			background: #fc1934;
+			color: #fff;
+			font-weight: bold;
+			font-size: 18px;
+			cursor:pointer;
+
+		}
+		.sc_right{
+			position: absolute;
+			width: 270px;
+			border-left: 2px solid #b6b6b6;
+			right: -270px;
+			top: 0;
+			height: 100%;
+
+		}
+		.sc_pic{
+			width: 40px;
+			height: 40px;
+			padding: 4px 6px;
+			background: url(toolbars.png) #999 15px 15px no-repeat;
+			position: relative;
+			left: -52px;
+			top: 50%;
+			margin-top: -24px;
+
+		}
+		.sc_num{
+			position: absolute;
+			padding: 2px 8px;
+			border-radius: 50%;
+			background: red;
+			color: #fff;
+			top: -8px;
+			left: 20px;
+			z-index: 1;
+		}
+		.sc_goodsPic{
+
+			width: 80px;
+			height: 80px;
+			border: 1px solid #b6b6b6;
+			float: left;
+
+		}
+		.sc_goodsPic img{
+			width: 100%;
+			height: 100%;
+		}
+		.sc_goodsTitle{
+			line-height: 40px;
+			color: #999;
+			margin-left: 20px;
+			float: left;
+		}
+		.sc_goodsBtn{
+
+			background: #fc1934;
+			color: #fff;
+			text-align: center;
+			float: left;
+			line-height: 30px;
+			width: 60px;
+			height: 30px;
+
+			cursor: pointer;
+
+		}
+        .delete_goodsBtn{
+            background: blue;
+			color: #fff;
+			text-align: center;
+			float: left;
+			line-height: 30px;
+			width: 60px;
+			height: 30px;
+
+			cursor: pointer;
+        }
+		.sc_goodsNum{
+			float: left;
+			line-height: 30px;
+			font-size: 10px;
+			margin-left: 5px;
+
+		}
+        .sc_goodsNum button{
+            width: 30px;
+            height: 30px;
+            background-color: black;
+            color: white;
+            font-size: 16px;
+        }
+		.sc_right li{
+			height: 100px;
+		}
+        #ball{width: 50px;
+        height: 50px; 
+        background-color: black; 
+        border-radius: 50%; 
+        position: absolute; 
+        left: 0px; 
+        top: 0px;
+        display:none;}
+</style>
+<script>
+$(function(){
+    sc_msg();
+    sc_num();
+
+    //加载数据
+    $.ajax({
+        url:"data.json",
+        success:function(arr){
+            var str=``;
+            for(var i=0;i<arr.length;i++){
+                str+=` <li class="goods_item">
+            <div class="goods_pic">
+                <img src="${arr[i].img}" alt="">
+            </div>
+            <div class="goods_title">
+                <p>【京东超市】奥利奥软点小草莓0</p>
+            </div>
+            <div class="sc">
+                <div id="${arr[i].id}" class="sc_btn">加入购物车</div>
+            </div>
+        </li>`
+            }
+            $(".goods_box ul").html(str);
+        },
+        error:function(msg){
+            console.log(msg);
+        }
+    })
+    //给加入购物车按钮添加点击
+    //设置cookie，<1>只能存储字符串 <2>cookie大小限制
+    //json数据，id num [{id:1,num:1},{id:2,num:2}];
+    $(".goods_box ul").on("click",".sc_btn",function(){
+        //取出当前点击加入购物车的id
+        var id=this.id;
+        //1、判断是否第一次参加
+       // var first =$.cookie("goods")==null?true:false;
+       var first=!($.cookie("goods"));
+       if(first){
+           $.cookie("goods",JSON.stringify([{id:id,num:1}]),{
+               expires:7
+           });
+       }else{
+           //2、不是第一次，判定之前是否添加过
+           var cookieArr=JSON.parse($.cookie("goods"));
+           var same=false;//假设没有相同的数据
+           for(var i=0;i<cookieArr.length;i++){
+               if(cookieArr[i].id==id){
+                   same=true;
+                   break;
+               }
+           }
+           same?cookieArr[i].num++:cookieArr.push({id:id,num:1});
+           //3、将处理完的数据存储回去
+           $.cookie("goods",JSON.stringify(cookieArr),{
+               expires:7
+           })
+       }
+       sc_msg();
+       sc_num();
+
+    })
+    //右侧购物车移入移出效果
+    $(".sc_right").mouseenter(function(){
+        $(this).stop(true).animate({right:0},500)
+    }).mouseleave(function(){
+        $(this).stop(true).animate({right:-270},500)
+    })
+
+   //给右侧购物车的删除按钮添加点击
+   $(".sc_right ul").on("click",".delete_goodsBtn",function(){
+       var id=$(this).closest("li").remove().attr("id");
+       //删除页面上的节点 从cookie中删除数据
+       var cookieArr=JSON.parse($.cookie("goods"));
+       for(var i=0;i<cookieArr.length;i++){
+           if(cookieArr[i].id==id){
+               cookieArr.splice(i,1);
+               break;
+           }
+       }
+       if(cookieArr.length){
+           $.cookie("goods",JSON.stringify(cookieArr),{
+               expires:7
+           })
+       }else{
+           $.cookie("goods",null);
+       }
+
+       //更新数据数量
+       sc_num();
+   })
+   $(".sc_right ul").on("click",".sc_goodsNum button",function(){
+       var id=$(this).closest("li").attr("id");
+       var cookieArr=JSON.parse($.cookie("goods"));
+       for(var i=0;i<cookieArr.length;i++){
+           if(cookieArr[i].id==id){
+               break;
+           }
+       }
+       if(this.innerHTML=="+"){
+           cookieArr[i].num++;
+       }else{
+         cookieArr[i].num==1?alert("数量为1，不能减少"):cookieArr[i].num--;
+       }
+       $.cookie("goods",JSON.stringify(cookieArr),{
+           expires:7
+       })
+       //修改页面上的数量
+       $(this).siblings("span").html(`商品数量：${cookieArr[i].num}`);
+       sc_num();
+   })
+   //加载右侧购物车里面的数据
+   //1、购物车的数据存储在cookie 2、商品数据在服务器
+   function sc_msg(){
+       var cookieStr=$.cookie("goods");
+       if(!cookieStr){
+           return;
+       }
+       //下载所有商品数据
+       $.ajax({
+           url:"data.json",
+           success:function(arr){
+               var cookieArr=JSON.parse(cookieStr);
+               var newArr=[];
+               for(var i=0;i<arr.length;i++){
+                   for(var j=0;j<cookieArr.length;j++){
+                       if(cookieArr[j].id==arr[i].id){
+                           arr[i].num=cookieArr[j].num;
+                           newArr.push(arr[i]);
+                           break;
+                       }
+                   }
+               }
+               //通过newArr 处理数据，将数据添加在页面上
+               var str=``;
+               for(var i=0;i<newArr.length;i++){
+                   str+=`<li id="${newArr[i].id}">
+            <div class="sc_goodsPic">
+                <img src="${newArr[i].img}" alt="">
+            </div>
+            <div class="sc_goodsTitle">
+                <p>这是商品曲奇饼干</p>
+            </div>
+            <div class="sc_goodsBtn">购买</div>
+            <div class="delete_goodsBtn">删除</div>
+            <div class="sc_goodsNum">
+                <div>
+                    <button>+</button>
+                    <button>-</button>
+                    <span>商品数量：${newArr[i].num}</span>
+                </div>
+            </div>
+        </li>`
+               }
+               $(".sc_right ul").html(str);
+           },
+           error:function(msg){
+               console.log(msg);
+           }
+       })
+   }
+   //处理数量
+   function sc_num(){
+       var cookieStr=$.cookie("goods");
+       var sum=0;
+       if(cookieStr){
+           var cookieArr=JSON.parse(cookieStr);
+           for(var i=0;i<cookieArr.length;i++){
+               sum+=cookieArr[i].num;
+           }
+       }
+       $(".sc_right .sc_num").html(sum);
+   }
+})
+</script>
+<body>
+    <button id = 'clearBtn'>清空购物车</button>
+    <!-- 商品列表 -->
+        <div class="goods_box">
+    
+            <ul>
+                <!-- 假数据 -->
+          <!-- <li class="goods_item">
+            <div class="goods_pic">
+                <img src="http://img12.360buyimg.com/n1/s130x130_jfs/t3013/181/252505015/481710/6a6ee10a/57983914Nf3b91795.jpg" alt="">
+            </div>
+            <div class="goods_title">
+                <p>【京东超市】奥利奥软点小草莓0</p>
+            </div>
+            <div class="sc">
+                <div id="0" class="sc_btn">加入购物车</div>
+            </div>
+        </li> -->
+            </ul>
+    
+        </div>
+    
+    <!-- 右边购物车 -->
+        <div class="sc_right">
+            <div class="sc_pic">
+                <!-- 购物车内商品的数量 -->
+                <div class="sc_num">
+                    0
+                </div>
+            </div>
+    
+            <ul>
+          <!-- <li id="4">
+            <div class="sc_goodsPic">
+                <img src="http://img12.360buyimg.com/n1/s130x130_jfs/t3013/181/252505015/481710/6a6ee10a/57983914Nf3b91795.jpg" alt="">
+            </div>
+            <div class="sc_goodsTitle">
+                <p>这是商品曲奇饼干</p>
+            </div>
+            <div class="sc_goodsBtn">购买</div>
+            <div class="delete_goodsBtn">删除</div>
+            <div class="sc_goodsNum">
+                <div>
+                    <button>+</button>
+                    <button>-</button>
+                    <span>商品数量：1</span>
+                </div>
+            </div>
+        </li> -->
+            </ul>
+        </div>
+        <div id = 'ball'></div>
+</body>
+</html>
